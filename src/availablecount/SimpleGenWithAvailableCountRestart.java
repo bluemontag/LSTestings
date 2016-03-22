@@ -111,6 +111,7 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 	    	ls2.setValueAt(i_row, j, av.size());
 	    	
 	    	availableInRow.remove(row.get(j));
+	    	availableInCol[j].remove(row.get(j));
 	    }
 	    
 	    return row;
