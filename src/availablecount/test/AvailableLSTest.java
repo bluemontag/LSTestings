@@ -1,8 +1,7 @@
 package availablecount.test;
 
-import jacomatt.model.IncidenceCube;
-import availablecount.SimpleGenWithAvailableCount;
 import availablecount.SimpleGenWithAvailableCountRestart;
+
 import commons.model.ILatinSquare;
 
 public class AvailableLSTest {
@@ -13,8 +12,9 @@ public class AvailableLSTest {
 	 */
 	public static void main(String[] args) throws Exception {
 		int n = Integer.parseInt(args[0]);
+		int gens = Integer.parseInt(args[0]);
 		
-		SimpleGenWithAvailableCountRestart generator = new SimpleGenWithAvailableCountRestart(n);
+		SimpleGenWithAvailableCountRestart generator = new SimpleGenWithAvailableCountRestart(n, gens);
 		
 		ILatinSquare ls = generator.generateLS();
 		ILatinSquare ls2 = generator.getLs2();

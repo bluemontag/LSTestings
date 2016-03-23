@@ -23,11 +23,13 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 	
 	ILatinSquare ls2;
 	BufferedWriter bw = null;
+	int maxGenerations = 1;
 	
-	public SimpleGenWithAvailableCountRestart(int n) {
+	public SimpleGenWithAvailableCountRestart(int n, int maxGenerations) {
 		super(n);
 		ls2 = new ArrayListLatinSquare(n);
     
+		this.maxGenerations = maxGenerations;
 	    try {
 	    	bw = new BufferedWriter(new FileWriter("c:\\users\\igallego\\Documents\\log.txt"));
 	    } catch (Exception e) {
@@ -107,7 +109,7 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 		    availableInRow = new HashSet<Integer>();
 			availableInRow.addAll(symbols);
 		    
-	    } while (rowGenerations<100000);
+	    } while (rowGenerations<maxGenerations);
 	    
 //	    System.out.println(collisionCount+" collisions");
 //	    System.out.println(rows.size()+" possible rows counted.");
