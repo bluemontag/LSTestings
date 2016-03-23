@@ -12,7 +12,7 @@ public class AvailableLSTest {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		int n = 30;
+		int n = Integer.parseInt(args[0]);
 		
 		SimpleGenWithAvailableCountRestart generator = new SimpleGenWithAvailableCountRestart(n);
 		

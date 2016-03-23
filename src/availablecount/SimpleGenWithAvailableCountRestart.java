@@ -96,7 +96,8 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 		    
 		    rows.add(row);
 		    rowGenerations++;
-		    System.out.println("Row "+i_row+" finished "+rowGenerations+" times");
+		    if (rowGenerations%10000==0)
+		    	System.out.println("Row "+i_row+" finished "+rowGenerations+" times");
 		    
 		    for (int j=0; j<n; j++) {
 		    	availableInCol[j] = new HashSet<Integer>();
@@ -106,7 +107,7 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 		    availableInRow = new HashSet<Integer>();
 			availableInRow.addAll(symbols);
 		    
-	    } while (collisionCount<1000000 && rowGenerations<100000);
+	    } while (rowGenerations<100000);
 	    
 //	    System.out.println(collisionCount+" collisions");
 //	    System.out.println(rows.size()+" possible rows counted.");
