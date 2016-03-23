@@ -4,6 +4,8 @@ package availablecount;
  */
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,10 +22,18 @@ import commons.utils.RandomUtils;
 public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow {
 	
 	ILatinSquare ls2;
+	BufferedWriter bw = null;
 	
 	public SimpleGenWithAvailableCountRestart(int n) {
 		super(n);
 		ls2 = new ArrayListLatinSquare(n);
+    
+	    try {
+	    	bw = new BufferedWriter(new FileWriter("c:\\users\\igallego\\Documents\\log.txt"));
+	    } catch (Exception e) {
+	    	System.out.println("Could not write to file 1");
+	    	System.exit(0);
+	    }
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -38,13 +48,13 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 	    	initialAvailableInCol[j] = new HashSet<Integer>();
 	    	initialAvailableInCol[j].addAll(availableInCol[j]);
 	    }
-		
+	    
 	    int collisionCount = 0;
 	    
 	    //result of this method
 	    ArrayList<Integer> row = new ArrayList<Integer>();
 	    Set<ArrayList<Integer>> rows = new HashSet<ArrayList<Integer>>();
-	    int size=0;
+	    int rowGenerations=0;
 	    
 	    do {
 		    row = new ArrayList<Integer>();
@@ -85,8 +95,8 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 		    }
 		    
 		    rows.add(row);
-		    size++;
-		    System.out.println("Row "+i_row+" finished "+size+" times");
+		    rowGenerations++;
+		    System.out.println("Row "+i_row+" finished "+rowGenerations+" times");
 		    
 		    for (int j=0; j<n; j++) {
 		    	availableInCol[j] = new HashSet<Integer>();
@@ -96,10 +106,17 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 		    availableInRow = new HashSet<Integer>();
 			availableInRow.addAll(symbols);
 		    
-	    } while (collisionCount<1000000 && size<100);
+	    } while (collisionCount<1000000 && rowGenerations<100000);
 	    
-	    System.out.println(collisionCount+" collisions");
-	    System.out.println(rows.size()+" possible rows counted.");
+//	    System.out.println(collisionCount+" collisions");
+//	    System.out.println(rows.size()+" possible rows counted.");
+	    try {
+	    	bw.write("Row "+i_row+": "+collisionCount+" collisions. ");
+	    	bw.write(rows.size()+" possible rows counted.\n");
+	    } catch (Exception e) {
+	    	System.out.println("Could not write to file 2");
+	    	System.exit(0);
+	    }
 	    
 	    availableInRow.addAll(symbols);
 	    
@@ -123,6 +140,13 @@ public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow 
 	}
 	
 	public ILatinSquare getLs2() {
+		
+		try {
+	    	bw.close();
+	    } catch (Exception e) {
+	    	System.out.println("Could not write to file 3");
+	    	System.exit(0);
+	    }
 		return ls2;
 	}
 
