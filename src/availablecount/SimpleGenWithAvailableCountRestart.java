@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import basicImpl.model.generators.SimpleGenWithRestartRow;
-import basicImpl.model.latinsquares.ArrayListLatinSquare;
-import commons.model.ILatinSquare;
+import commons.model.latinsquares.ArrayListLatinSquare;
+import commons.model.latinsquares.ILatinSquare;
 import commons.utils.RandomUtils;
+import seqgen.model.generators.SeqGenWithRestartRow;
 
 /**
  * @author ignacio
  *
  */
-public class SimpleGenWithAvailableCountRestart extends SimpleGenWithRestartRow {
+public class SimpleGenWithAvailableCountRestart extends SeqGenWithRestartRow {
 	
 	ILatinSquare ls2;
 	BufferedWriter bw = null;

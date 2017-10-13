@@ -8,18 +8,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import basicImpl.model.generators.SimpleGenWithReplGraph;
-import basicImpl.model.latinsquares.ArrayListLatinSquare;
-
-import commons.model.ILatinSquare;
+import commons.model.latinsquares.ArrayListLatinSquare;
+import commons.model.latinsquares.ILatinSquare;
 import commons.utils.RandomUtils;
+import seqgen.model.generators.SeqGenWithReplGraph;
 
 
 /**
  * @author ignacio
  *
  */
-public class SimpleGenWithAvailableCount extends SimpleGenWithReplGraph {
+public class SimpleGenWithAvailableCount extends SeqGenWithReplGraph {
 
 		ILatinSquare ls2;
 		

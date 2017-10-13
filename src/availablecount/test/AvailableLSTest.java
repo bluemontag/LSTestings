@@ -1,8 +1,8 @@
 package availablecount.test;
 
 import availablecount.SimpleGenWithAvailableCountRestart;
+import commons.model.latinsquares.ILatinSquare;
 
-import commons.model.ILatinSquare;
 
 public class AvailableLSTest {
 
