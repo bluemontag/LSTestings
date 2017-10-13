@@ -19,13 +19,13 @@ import seqgen.model.generators.SeqGenWithRestartRow;
  * @author ignacio
  *
  */
-public class SimpleGenWithAvailableCountRestart extends SeqGenWithRestartRow {
+public class SeqGenWithAvailableCountRestart extends SeqGenWithRestartRow {
 	
 	ILatinSquare ls2;
 	BufferedWriter bw = null;
 	int maxGenerations = 1;
 	
-	public SimpleGenWithAvailableCountRestart(int n, int maxGenerations) {
+	public SeqGenWithAvailableCountRestart(int n, int maxGenerations) {
 		super(n);
 		ls2 = new ArrayListLatinSquare(n);
     

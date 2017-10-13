@@ -1,6 +1,6 @@
 package availablecount.test;
 
-import availablecount.SimpleGenWithAvailableCountRestart;
+import availablecount.SeqGenWithAvailableCountRestart;
 import commons.model.latinsquares.ILatinSquare;
 
 
@@ -14,7 +14,7 @@ public class AvailableLSTest {
 		int n = Integer.parseInt(args[0]);
 		int gens = Integer.parseInt(args[0]);
 		
-		SimpleGenWithAvailableCountRestart generator = new SimpleGenWithAvailableCountRestart(n, gens);
+		SeqGenWithAvailableCountRestart generator = new SeqGenWithAvailableCountRestart(n, gens);
 		
 		ILatinSquare ls = generator.generateLS();
 		ILatinSquare ls2 = generator.getLs2();

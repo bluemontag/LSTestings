@@ -18,11 +18,11 @@ import seqgen.model.generators.SeqGenWithReplGraph;
  * @author ignacio
  *
  */
-public class SimpleGenWithAvailableCount extends SeqGenWithReplGraph {
+public class SeqGenWithAvailableCount extends SeqGenWithReplGraph {
 
 		ILatinSquare ls2;
 		
-		public SimpleGenWithAvailableCount(int n) {
+		public SeqGenWithAvailableCount(int n) {
 			super(n);
 			ls2 = new ArrayListLatinSquare(n);
 		}
